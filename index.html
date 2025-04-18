@@ -51,6 +51,43 @@
       100% { transform: translateY(100vh); }
     }
 
+    /* Saturn-like rings */
+    .saturn-rings {
+      position: absolute;
+      left: 20px; /* Position on the left side */
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      height: 200px;
+      z-index: 1;
+      animation: rotate 10s linear infinite;
+    }
+
+    .ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(255, 215, 0, 0.7); /* Golden color */
+      border-radius: 50%;
+      animation: pulse 2s infinite alternate;
+      background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, rgba(255, 69, 0, 0) 70%);
+      filter: blur(5px); /* Soft glow effect */
+    }
+
+    .ring:nth-child(1) { width: 120%; height: 120%; }
+    .ring:nth-child(2) { width: 140%; height: 140%; animation-delay: 0.5s; }
+    .ring:nth-child(3) { width: 160%; height: 160%; animation-delay: 1s; }
+
+    @keyframes rotate {
+      from { transform: translateY(-50%) rotate(0deg); }
+      to { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+
     /* Logo container */
     .logo-container {
       position: absolute;
@@ -58,7 +95,7 @@
       left: 50%;
       transform: translate(-50%, -60%);
       opacity: 1;
-      z-index: 1;
+      z-index: 2; /* Ensure logo is above rings */
     }
 
     .logo-container img {
@@ -84,7 +121,7 @@
       padding: 6px;
       max-width: 600px;
       width: 90%;
-      z-index: 2;
+      z-index: 2; /* Ensure input is above rings */
       border: 1px solid #ffffff22;
     }
 
@@ -127,6 +164,13 @@
     }
   </script>
 
+  <!-- Saturn-like rings -->
+  <div class="saturn-rings">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+
   <!-- Logo image -->
   <div class="logo-container">
     <img 
@@ -145,5 +189,18 @@
     <button type="submit">➜</button>
   </form>
 
+  <script>
+    // Optional: Add JavaScript for dynamic scrolling effect
+    const rings = document.querySelector('.saturn-rings');
+    let angle = 0;
+
+    function animateRings() {
+      angle += 1;
+      rings.style.transform = `translateY(-50%) rotate(${angle}deg)`;
+      requestAnimationFrame(animateRings);
+    }
+
+    animateRings();
+  </script>
 </body>
 </html>
