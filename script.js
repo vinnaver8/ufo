@@ -6,34 +6,41 @@ let stars = [];
 function resize() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  stars = Array.from({ length: 400 }, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    radius: Math.random() * 1.2,
-    speed: Math.random() * 0.5 + 0.2
-  }));
-}
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = 'white';
-
-  for (let star of stars) {
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI);
-    ctx.fill();
-
-    star.y += star.speed;
-    if (star.y > canvas.height) {
-      star.y = 0;
-      star.x = Math.random() * canvas.width;
-    }
-  }
-
-  requestAnimationFrame(animate);
 }
 
 window.addEventListener('resize', resize);
-
 resize();
-animate();
+
+for (let i = 0; i < 500; i++) {
+  stars.push({
+    x: Math.random() * 2 - 1,
+    y: Math.random() * 2 - 1,
+    z: Math.random()
+  });
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let star of stars) {
+    star.z -= 0.002;
+    if (star.z <= 0) star.z = 1;
+
+    const sx = star.x / star.z;
+    const sy = star.y / star.z;
+    const px = (sx * canvas.width) / 2 + canvas.width / 2;
+    const py = (sy * canvas.height) / 2 + canvas.height / 2;
+
+    if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
+      const size = (1 - star.z) * 2;
+      ctx.beginPath();
+      ctx.arc(px, py, size, 0, 2 * Math.PI);
+      ctx.fillStyle = 'white';
+      ctx.fill();
+    }
+  }
+
+  requestAnimationFrame(drawStars);
+}
+
+drawStars();
