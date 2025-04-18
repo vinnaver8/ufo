@@ -2,23 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UFO X - Grok Style</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <canvas id="starfield"></canvas>
+
   <div class="overlay"></div>
 
-  <div class="container">
-  <div class="logo">Grok</div>
-  <div class="input-container">
-    <input type="text" placeholder="Ask Grok anything...">
-    <button><span>→</span></button>
-  </div>
+  <div class="content">
+    <h1 class="title">Grok</h1>
+    <div class="search-box">
+      <input type="text" placeholder="Ask Grok anything..." />
+      <button>→</button>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        z: Math.random() * canvas.width,
+      });
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = 'white';
+
+      for (let i = 0; i < stars.length; i++) {
+        let star = stars[i];
+        star.z -= 1;
+
+        if (star.z <= 0) {
+          star.z = canvas.width;
+        }
+
+        let k = 128.0 / star.z;
+        let px = star.x * k + canvas.width / 2;
+        let py = star.y * k + canvas.height / 2;
+
+        if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
+          let size = (1 - star.z / canvas.width) * 2;
+          ctx.beginPath();
+          ctx.arc(px, py, size, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+      }
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
+  </script>
 </body>
 </html>
