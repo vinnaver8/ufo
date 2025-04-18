@@ -51,7 +51,7 @@
       100% { transform: translateY(100vh); }
     }
 
-    /* Saturn-like rings */
+    /* Saturn-like rings as background */
     .saturn-rings {
       position: absolute;
       left: 20px; /* Position on the left side */
@@ -59,7 +59,7 @@
       transform: translateY(-50%);
       width: 200px;
       height: 200px;
-      z-index: 1;
+      z-index: -1; /* Behind the logo and input */
       animation: rotate 10s linear infinite;
     }
 
@@ -95,7 +95,7 @@
       left: 50%;
       transform: translate(-50%, -60%);
       opacity: 1;
-      z-index: 2; /* Ensure logo is above rings */
+      z-index: 1; /* Above rings */
     }
 
     .logo-container img {
@@ -121,7 +121,7 @@
       padding: 6px;
       max-width: 600px;
       width: 90%;
-      z-index: 2; /* Ensure input is above rings */
+      z-index: 1; /* Above rings */
       border: 1px solid #ffffff22;
     }
 
@@ -164,7 +164,7 @@
     }
   </script>
 
-  <!-- Saturn-like rings -->
+  <!-- Saturn-like rings as background -->
   <div class="saturn-rings">
     <div class="ring"></div>
     <div class="ring"></div>
