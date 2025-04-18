@@ -1,5 +1,3 @@
-console.log("UFO UI Loaded");
-// Add future interactivity here
 const canvas = document.getElementById('starfield');
     const ctx = canvas.getContext('2d');
     let stars = [];
