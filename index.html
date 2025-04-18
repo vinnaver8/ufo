@@ -9,77 +9,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Josefin Sans', sans-serif;
+      background-color: black;
       color: white;
       text-align: center;
-      min-height: 100vh;
-      background: linear-gradient(135deg, #000000 0%, #f5a623 100%);
-      overflow: hidden;
+      padding-top: 20%;
     }
-    .content {
-      position: relative;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+    h1 {
+      font-size: 5rem;
+      font-weight: 700;
     }
     .title {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(8rem, 15vw, 12rem); /* Responsive size for mobile/PC */
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-      margin-bottom: 20px;
-      color: #333; /* Darker color to match gradient effect */
-    }
-    .search-box {
-      display: flex;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 25px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-    .search-box input {
-      padding: 12px 20px;
-      font-size: 1.1em;
-      border: none;
-      background: transparent;
-      color: white;
-      width: 250px;
-      outline: none;
-      font-family: 'Josefin Sans', sans-serif;
-    }
-    .search-box input::placeholder {
-      color: #ccc;
-    }
-    .search-box button {
-      padding: 12px 20px;
-      font-size: 1.1em;
-      border: none;
-      background: #00f;
-      color: white;
-      cursor: pointer;
-      border-radius: 0 25px 25px 0;
-      transition: background 0.3s;
-    }
-    .search-box button:hover {
-      background: #0055ff;
-    }
-    @media (max-width: 768px) {
-      .title {
-        font-size: clamp(4rem, 10vw, 8rem); /* Smaller on mobile */
-      }
-      .search-box input {
-        width: 180px;
-        font-size: 1em;
-      }
-      .search-box button {
-        font-size: 1em;
-        padding: 10px 15px;
-      }
+      font-size: 10rem; /* Increased to match the screenshot's large size */
     }
   </style>
 </head>
@@ -89,7 +31,7 @@
   <div class="overlay"></div>
 
   <div class="content">
-    <h1 class="title">Grok</h1>
+    <h1 class="title">UFO'AI</h1>
     <div class="search-box">
       <input type="text" placeholder="Ask Grok anything..." />
       <button>→</button>
