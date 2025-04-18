@@ -1,1 +1,52 @@
-body { background: radial-gradient(circle at center, #1a1a1a, #000000); color: white; }
+/* Reset and background */
+body, html {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(ellipse at center, #050505 0%, #000000 100%);
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+/* Starfield */
+.stars {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  box-shadow: 
+    50px 100px #ffffff22,
+    100px 200px #ffffff11,
+    200px 300px #ffffff33,
+    300px 400px #ffffff22,
+    400px 500px #ffffff11,
+    500px 600px #ffffff33;
+  animation: moveStars 30s linear infinite;
+}
+
+@keyframes moveStars {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-1000px); }
+}
+
+/* Glowing Text */
+.title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  color: white;
+  text-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff, 0 0 30px #00cfff;
+  letter-spacing: 0.3rem;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00cfff, 0 0 10px #00cfff;
+  }
+  to {
+    text-shadow: 0 0 20px #00cfff, 0 0 40px #00cfff;
+  }
+}
