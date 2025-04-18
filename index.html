@@ -3,68 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UFO X - Grok Style</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>UFO</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <canvas id="starfield"></canvas>
-
-  <div class="overlay"></div>
-
-  <div class="content">
-    <h1 class="title">Grok</h1>
-    <div class="search-box">
-      <input type="text" placeholder="Ask Grok anything..." />
-      <button>→</button>
+  <div class="background-stars"></div>
+  <div class="content-container">
+    <div class="logo-container">
+      <img src="assets/ufo-logo.png" alt="UFO Logo" class="glow-logo" />
     </div>
+    <form class="search-box">
+      <input type="text" placeholder="Ask UFO anything..." name="query" />
+      <button type="submit" aria-label="Submit a query to UFO">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
+        </svg>
+      </button>
+    </form>
   </div>
-
-  <script>
-    const canvas = document.getElementById('starfield');
-    const ctx = canvas.getContext('2d');
-    let stars = [];
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    for (let i = 0; i < 200; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        z: Math.random() * canvas.width,
-      });
-    }
-
-    function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'white';
-
-      for (let i = 0; i < stars.length; i++) {
-        let star = stars[i];
-        star.z -= 1;
-
-        if (star.z <= 0) {
-          star.z = canvas.width;
-        }
-
-        let k = 128.0 / star.z;
-        let px = star.x * k + canvas.width / 2;
-        let py = star.y * k + canvas.height / 2;
-
-        if (px >= 0 && px <= canvas.width && py >= 0 && py <= canvas.height) {
-          let size = (1 - star.z / canvas.width) * 2;
-          ctx.beginPath();
-          ctx.arc(px, py, size, 0, 2 * Math.PI);
-          ctx.fill();
-        }
-      }
-      requestAnimationFrame(drawStars);
-    }
-    drawStars();
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
