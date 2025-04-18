@@ -41,14 +41,15 @@ body {
 }
 
 .content {
-  font-size: 15vw; /* Adjust the value as needed for the desired size */
-  font-weight: bold; /* Make the text bold */
-  text-transform: uppercase; /* Ensure it's uppercase */
-  width: 100%; /* Make it span the full width of its parent */
-  text-align: center; /* Center the text */
-  line-height: 1; /* Adjust line height as needed */
-  margin: 0; /* Remove default margins */
-  padding: 0; /* Remove default padding */
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 150vh;
+  text-align: center;
+  padding: 40px;
 }
 
 /* Title Text */
