@@ -24,12 +24,6 @@ html, body {
   z-index: -3;
 }
 
-.video-bg video {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
 #starfield {
   position: fixed;
   top: 0;
