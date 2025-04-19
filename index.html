@@ -8,20 +8,22 @@
 </head>
 <body>
 
-  <!-- Background video -->
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="bg.mp4" type="video/mp4">
-  </video>
+  <!-- Background Video -->
+  <div class="video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="bg.mp4" type="video/mp4" />
+    </video>
+  </div>
 
-  <!-- Starfield Canvas -->
+  <!-- Canvas for star parallax -->
   <canvas id="starfield"></canvas>
 
-  <!-- Logo -->
+  <!-- UFO Logo -->
   <div class="logo-container">
     <img src="UFOAI.png" alt="UFO AI Logo" />
   </div>
 
-  <!-- Input box -->
+  <!-- Search box -->
   <form class="search-box">
     <input type="text" placeholder="Ask Uno AI anything..." />
     <button type="submit">➜</button>
