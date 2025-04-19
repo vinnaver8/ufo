@@ -34,13 +34,23 @@ canvas {
   margin-bottom: 30px;
 }
 
-.input-container {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 25px;
+.logo-container {
+  opacity: 1;
+  transform: none;
   display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  border: 1px solid #333;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.logo-img {
+  max-width: 90vw;
+  width: 100%;
+  height: auto;
+  color: transparent;
+  mask-image: linear-gradient(30deg, rgba(255,255,255,0) 15%, rgba(255,255,255, 1), rgba(255,255,255, 1));
+  -webkit-mask-image: linear-gradient(30deg, rgba(255,255,255,0) 15%, rgba(255,255,255, 1), rgba(255,255,255, 1));
+  image-rendering: auto;
 }
 
 input[type="text"] {
