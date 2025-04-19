@@ -3,31 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>UFO AI</title>
+  <title>Uno AI</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <!-- Background Video -->
-  <div class="video-bg">
-    <video autoplay muted loop playsinline>
-      <source src="your-background-video.mp4" type="video/mp4" />
-    </video>
-  </div>
-
-  <!-- Canvas for star parallax -->
   <canvas id="starfield"></canvas>
 
-  <!-- UFO Logo -->
-<div class="logo-container">
-<img src="UFOAI.png" alt="UFO AI Logo" loading="lazy" width="2299" height="779" decoding="async" data-nimg="1" class="max-w-screen sm:max-w-full xl:max-w-5xl pointer-events-none select-none" />
-</div>
+  <section class="hero">
+    <img src="UFOAI.png" alt="Uno AI Logo" class="logo" />
+    <div class="input-container">
+      <input type="text" placeholder="Ask Uno anything…" />
+      <button>→</button>
+    </div>
+  </section>
 
-  <!-- Search box -->
-  <form class="search-box">
-    <input type="text" placeholder="Ask Uno AI anything..." />
-    <button type="submit">➜</button>
-  </form>
+  <section class="why-uno">
+    <div class="container">
+      <h2 class="section-title">Why Choose UFO AI</h2>
+      <div class="features">
+        <div class="feature-card">
+          <h3>Instant Answers</h3>
+          <p>Get intelligent responses in real time powered by advanced AI understanding.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Elegant Experience</h3>
+          <p>Minimal and beautiful UI designed for focus and clarity.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Secure & Private</h3>
+          <p>Your questions stay yours — UFO AI doesn’t store or sell your data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
