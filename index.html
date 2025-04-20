@@ -1,33 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>INDOX AI</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Background image -->
   <div class="background"></div>
 
-  <!-- Centered content -->
-  <div class="hero-section">
-    <!-- Logo Image with outline + gradient mask like Grok -->
-    <div class="logo-wrapper">
-      <img src="UFO.png" alt="INDOX Logo"
-        class="logo-img" />
-    </div>
+  <div class="absolute inset-0 top-20 flex justify-center items-center grow">
+    <div>
+      <!-- INDOX Outline Logo -->
+      <div style="opacity: 1; transform: none;">
+        <img 
+          alt="Outline of the word INDOX"
+          loading="lazy"
+          decoding="async"
+          class="max-w-screen sm:max-w-full xl:max-w-5xl pointer-events-none select-none"
+          style="color:transparent;mask-image:linear-gradient(30deg, rgba(255,255,255,0) 15%, rgba(255,255,255, 1), rgba(255,255,255, 1))"
+          src="indox-outline.webp"
+        />
+      </div>
 
-    <!-- Input box -->
-    <div class="input-wrapper">
-      <form class="search-form">
-        <input type="text" placeholder="Ask INDOX anything..." name="query">
-        <button type="submit" aria-label="Submit a query">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
-          </svg>
-        </button>
-      </form>
+      <!-- Input Box -->
+      <div class="flex justify-center relative z-10 w-full mt-12" style="opacity: 1;">
+        <div class="w-full max-w-xl">
+          <form class="relative w-full items-center gap-3 bg-gradient-to-tr rounded-full p-px from-primary/5 to-primary/20">
+            <input
+              type="text"
+              class="w-full h-14 lg:h-[68px] rounded-full border-none pl-6 pr-20 focus:outline-none focus:ring-2 focus:ring-white/50 bg-background text-primary placeholder:text-primary/50"
+              placeholder="Ask INDOX anything..."
+              name="query"
+            />
+            <div class="absolute inset-y-2 right-2 lg:right-4 flex items-center">
+              <button
+                aria-label="Submit a query to INDOX"
+                type="submit"
+                class="relative isolate inline-flex items-center justify-center border text-base/6 uppercase font-mono tracking-widest shrink-0
+                focus:outline-none rounded-full opacity-50
+                bg-[--btn-bg] text-[--btn-text] border-[--btn-border] hover:bg-[--btn-hover] hover:border-[--btn-hover]
+                [--btn-bg:theme(colors.primary)] [--btn-border:theme(colors.primary)]
+                [--btn-text:theme(colors.background)] [--btn-hover:theme(colors.primary/80%)]"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="!size-4">
+                  <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
     </div>
   </div>
 </body>
