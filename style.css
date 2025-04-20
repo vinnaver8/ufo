@@ -1,81 +1,49 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-body, html {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  font-family: sans-serif;
-  background: black;
 }
 
+body {
+  font-family: 'Inter', sans-serif;
+  color: white;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background image */
 .background {
   position: fixed;
   inset: 0;
-  background-image: url('background.webp'); /* replace with your image */
+  background-image: url('background.webp'); /* change to your image file */
   background-size: cover;
   background-position: center;
   z-index: -1;
 }
 
-/* Logo + mask like Grok */
-.logo-wrapper {
-  opacity: 1;
-  transform: none;
-  display: flex;
-  justify-content: center;
-  margin-top: 5rem;
-}
-.logo-img {
-  width: 90%;
-  max-width: 1100px;
-  pointer-events: none;
-  user-select: none;
-  mask-image: linear-gradient(30deg, rgba(255,255,255,0) 15%, rgba(255,255,255,1));
-  -webkit-mask-image: linear-gradient(30deg, rgba(255,255,255,0) 15%, rgba(255,255,255,1));
-}
+/* Utility classes for layout, similar to Tailwind (optional if using Tailwind CDN) */
+.absolute { position: absolute; }
+.relative { position: relative; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.top-20 { top: 5rem; }
+.mt-12 { margin-top: 3rem; }
+.w-full { width: 100%; }
+.max-w-xl { max-width: 36rem; }
+.rounded-full { border-radius: 9999px; }
 
-/* Input box like Grok */
-.input-wrapper {
-  margin-top: 3rem;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  z-index: 10;
-}
-.search-form {
-  display: flex;
-  width: 100%;
-  max-width: 600px;
-  background: linear-gradient(to top right, rgba(255,255,255,0.05), rgba(255,255,255,0.2));
-  padding: 2px;
-  border-radius: 9999px;
-}
-.search-form input {
-  flex: 1;
-  height: 56px;
-  border: none;
-  padding: 0 1.5rem;
-  border-radius: 9999px;
-  background: black;
-  color: white;
-  font-size: 16px;
-  outline: none;
-}
-.search-form input::placeholder {
-  color: rgba(255,255,255,0.5);
-}
-.search-form button {
-  background: #f0c14b;
-  color: black;
-  border: none;
-  border-radius: 9999px;
-  padding: 0 1rem;
-  cursor: pointer;
-}
-.search-form button svg {
-  width: 24px;
-  height: 24px;
+/* Basic Tailwind-like colors */
+.text-primary { color: white; }
+.bg-background { background-color: rgba(0,0,0,0.5); }
+.placeholder\:text-primary\/50::placeholder { color: rgba(255,255,255,0.5); }
+
+/* Button transition and hover styles */
+button:hover {
+  opacity: 1 !important;
+  transform: scale(1.05);
+  transition: 0.3s ease;
 }
