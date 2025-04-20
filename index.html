@@ -1,46 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Uno AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INDOX AI</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <canvas id="starfield"></canvas>
+  <!-- Background image -->
+  <div class="background"></div>
 
-  <section class="hero">
-    <div class="logo-container">
-  <img
-    src="UFOAI.png"
-    alt="Outline of the word UFO'AI"
-    class="logo-img"
-    loading="lazy"
-    decoding="async"
-  />
+  <!-- Centered content -->
+  <div class="hero-section">
+    <!-- Logo Image with outline + gradient mask like Grok -->
+    <div class="logo-wrapper">
+      <img src="UFO.png" alt="INDOX Logo"
+        class="logo-img" />
     </div>
-  </section>
 
-  <section class="why-uno">
-    <div class="container">
-      <h2 class="section-title">Why Choose Uno AI</h2>
-      <div class="features">
-        <div class="feature-card">
-          <h3>Instant Answers</h3>
-          <p>Get intelligent responses in real time powered by advanced AI understanding.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Elegant Experience</h3>
-          <p>Minimal and beautiful UI designed for focus and clarity.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Secure & Private</h3>
-          <p>Your questions stay yours — Uno AI doesn’t store or sell your data.</p>
-        </div>
-      </div>
+    <!-- Input box -->
+    <div class="input-wrapper">
+      <form class="search-form">
+        <input type="text" placeholder="Ask INDOX anything..." name="query">
+        <button type="submit" aria-label="Submit a query">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+      </form>
     </div>
-  </section>
-
-  <script src="script.js"></script>
+  </div>
 </body>
 </html>
