@@ -1,110 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>INDOX Hover Effect</title>
+  <meta charset="UTF-8">
+  <title>INDOX AI Toolkit Window</title>
   <style>
     body {
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       margin: 0;
-    }
+      background: black;
+      overflow: hidden;
+    }.scene-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
 
-    .svg-container {
-      position: relative;
-      width: 500px;
-      cursor: pointer;
-    }
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 
-    .indox-svg {
-      width: 100%;
-      transition: transform 0.4s ease-in-out;
-    }
+.svg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
 
-    .svg-container:hover .indox-svg {
-      transform: rotate(6deg) scale(1.05);
-    }
+.docs-scroll {
+  position: absolute;
+  top: 130px;
+  left: 105px;
+  width: 280px;
+  height: 200px;
+  color: white;
+  font-family: monospace;
+  overflow: hidden;
+  z-index: 3;
+}
 
-    .particles {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      overflow: visible;
-    }
+.docs-scroll > div {
+  animation: scroll-up 18s linear infinite;
+}
 
-    .particles span {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: radial-gradient(white, gold);
-      opacity: 0;
-      animation: sparkle 1s ease-out forwards;
-    }
+@keyframes scroll-up {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(-100%); }
+}
 
-    @keyframes sparkle {
-      0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(var(--x), var(--y)) scale(0.5);
-        opacity: 0;
-      }
-    }
   </style>
 </head>
 <body>
-  <div class="svg-container">
-    <!-- Particle layer -->
-    <div class="particles"></div>
+  <div class="scene-container">
+    <canvas id="dotCanvas"></canvas><div class="svg-overlay">
+  <!-- Your provided SVG, simplified for clarity -->
+  <svg width="488" viewBox="0 0 488 382" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="1">
+      <rect x="2.21289" y="1.66309" width="484.288" height="415.415" stroke="white"></rect>
+      <text x="16" y="30" fill="white" font-size="20" font-family="Arial, sans-serif" font-weight="bold">INDOX</text>
+      <rect x="406.045" y="14.8174" width="45" height="15" rx="4.5" stroke="white"></rect>
+      <circle cx="467.545" cy="22.3174" r="7.5" stroke="white"></circle>
+      <line x1="88.041" y1="42.1299" x2="88.041" y2="418.281" stroke="white"></line>
+      <line x1="486.502" y1="42.582" x2="2.21051" y2="42.5821" stroke="white"></line>
+    </g>
+  </svg>
+</div>
 
-    <!-- Your SVG -->
-    <svg class="indox-svg" width="488" viewBox="0 0 488 382" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g opacity="1">
-        <rect x="2.21289" y="1.66309" width="484.288" height="415.415" stroke="url(#paint0_linear_33863_16843)"></rect>
-
-        <!-- INDOX Logo -->
-        <text x="16" y="30" fill="white" font-size="20" font-family="Arial, sans-serif" font-weight="bold">INDOX</text>
-
-        <rect x="406.045" y="14.8174" width="45" height="15" rx="4.5" stroke="white"></rect>
-        <circle cx="467.545" cy="22.3174" r="7.5" stroke="white"></circle>
-        <line x1="88.041" y1="42.1299" x2="88.041" y2="418.281" stroke="url(#paint1_linear_33863_16843)"></line>
-        <line x1="486.502" y1="42.582" x2="2.21051" y2="42.5821" stroke="white"></line>
-      </g>
-      <defs>
-        <linearGradient id="paint0_linear_33863_16843" x1="244.357" y1="1.16309" x2="244.357" y2="417.578" gradientUnits="userSpaceOnUse">
-          <stop stop-color="white"></stop>
-          <stop offset="0.8" stop-color="#0A0A0A"></stop>
-        </linearGradient>
-        <linearGradient id="paint1_linear_33863_16843" x1="86.5402" y1="42.1299" x2="86.5402" y2="418.281" gradientUnits="userSpaceOnUse">
-          <stop stop-color="white"></stop>
-          <stop offset="0.8" stop-color="#0A0A0A"></stop>
-        </linearGradient>
-      </defs>
-    </svg>
+<div class="docs-scroll">
+  <div>
+    <p>Benefit 1: INDOX AI acts as human helping human</p>
+    <p>Benefit 2: Real-time generative design</p>
+    <p>Benefit 3: Furniture and interior replacement</p>
+    <p>Benefit 4: Cloud-fast image processing</p>
+    <p>Benefit 5: Developer-first API experience</p>
   </div>
+</div>
 
-  <script>
-    const container = document.querySelector('.svg-container');
-    const particleLayer = container.querySelector('.particles');
+  </div>  <script>
+    const canvas = document.getElementById('dotCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-    container.addEventListener('mouseenter', () => {
-      for (let i = 0; i < 15; i++) {
-        const dot = document.createElement('span');
-        const x = (Math.random() - 0.5) * 200 + 'px';
-        const y = (Math.random() - 0.5) * 200 + 'px';
-        dot.style.setProperty('--x', x);
-        dot.style.setProperty('--y', y);
-        particleLayer.appendChild(dot);
-        setTimeout(() => dot.remove(), 1000);
-      }
-    });
-  </script>
-</body>
+    let dots = Array.from({length: 100}, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 2 + 1,
+      speed: Math.random() * 1 + 0.5
+    }));
+
+    function animateDots() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      dots.forEach(dot => {
+        ctx.beginPath();
+        ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+        ctx.fillStyle = dot.x > canvas.width / 2 ? 'orange' : 'white';
+        ctx.fill();
+
+        dot.x += dot.speed;
+        if (dot.x > canvas.width / 2 && dot.radius > 0.2) {
+          dot.radius *= 0.98;
+          dot.y += 0.1;
+        }
+
+        if (dot.x > canvas.width) {
+          dot.x = 0;
+          dot.y = Math.random() * canvas.height;
+          dot.radius = Math.random() * 2 + 1;
+        }
+      });
+
+      requestAnimationFrame(animateDots);
+    }
+
+    animateDots();
+  </script></body>
 </html>
