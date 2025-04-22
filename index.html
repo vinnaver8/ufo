@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom API SVG</title>
+  <title>API Section SVG with Transformation</title>
   <style>
     body {
-      background-color: #000; /* Dark background like your screenshot */
+      background-color: #000; /* Matches your screenshot */
       color: #fff;
       margin: 0;
       display: flex;
@@ -15,25 +15,27 @@
       height: 100vh;
     }
     .api-container {
-      width: 200px;
-      height: 200px;
+      width: 488px; /* Matches SVG width */
+      height: 382px; /* Matches SVG height */
       position: relative;
+      margin: 20px;
     }
     .api-svg {
       width: 100%;
       height: 100%;
-      transition: transform 0.3s ease;
-      stroke: #fff; /* White outline */
-      fill: none;
+      opacity: 0.4;
+      transition: opacity 0.1s ease, transform 0.3s ease, skew 0.3s ease;
     }
-    .api-svg:hover {
-      transform: rotate(10deg); /* Rotate on hover */
+    .api-container:hover .api-svg {
+      opacity: 0.7;
+      transform: skewY(12deg) scale(0.75) rotate(10deg); /* Combined skew, scale, and rotation */
+      transition: opacity 0.1s ease, transform 0.3s ease;
     }
     .dot {
       position: absolute;
       width: 5px;
       height: 5px;
-      background: #ff4500; /* Orange dots */
+      background: #ff4500; /* Orange dots from your preference */
       border-radius: 50%;
       animation: moveDots 2s infinite alternate;
     }
@@ -48,14 +50,23 @@
 </head>
 <body>
   <div class="api-container">
-    <svg class="api-svg" viewBox="0 0 200 200">
-      <!-- Outer frame -->
-      <path d="M20 20 L180 20 L180 180 L20 180 Z" stroke-width="2" />
-      <!-- Diagonal line for perspective -->
-      <line x1="20" y1="20" x2="180" y2="180" stroke-width="2" />
-      <!-- Simple "X" shape (approximation) -->
-      <line x1="60" y1="60" x2="140" y2="140" stroke-width="2" />
-      <line x1="140" y1="60" x2="60" y2="140" stroke-width="2" />
+    <svg class="api-svg" viewBox="0 0 488 382" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="1">
+        <rect x="2.21289" y="1.66309" width="484.288" height="415.415" stroke="url(#paint0_linear_33863_16843)"></rect>
+        <path d="M16.1765 19.6311L24.299 31.4842H27.9093L19.786 19.6311H16.1765ZM19.7832 26.2144L16.1719 31.4842H19.785L21.5893 28.8498L19.7832 26.2144ZM28.7352 13.1509L22.4928 22.2599L24.299 24.8962L32.3483 13.1509H28.7352ZM29.389 18.7873V31.4842H32.3483V14.469L29.389 18.7873Z" fill="white"></path>
+        <rect x="406.045" y="14.8174" width="45" height="15" rx="4.5" stroke="white"></rect>
+        <circle cx="467.545" cy="22.3174" r="7.5" stroke="white"></circle>
+        <line x1="88.041" y1="42.1299" x2="88.041" y2="418.281" stroke="url(#paint1_linear_33863_16843)"></line>
+        <line x1="486.502" y1="42.582" x2="2.21051" y2="42.5821" stroke="white"></line>
+      </g>
+      <defs>
+        <linearGradient id="paint0_linear_33863_16843" x1="244.357" y1="1.16309" x2="244.357" y2="417.578" gradientUnits="userSpaceOnUse">
+          <stop stop-color="white"></stop><stop offset="0.8" stop-color="#0A0A0A"></stop>
+        </linearGradient>
+        <linearGradient id="paint1_linear_33863_16843" x1="86.5402" y1="42.1299" x2="86.5402" y2="418.281" gradientUnits="userSpaceOnUse">
+          <stop stop-color="white"></stop><stop offset="0.8" stop-color="#0A0A0A"></stop>
+        </linearGradient>
+      </defs>
     </svg>
     <div class="dot" style="top: 20px; left: 20px;"></div>
     <div class="dot" style="top: 40px; left: 40px;"></div>
