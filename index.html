@@ -3,29 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG Animation with Dark Theme</title>
+  <title>Custom API SVG</title>
   <style>
     body {
-      background-color: #000; /* Black background to match your screenshot */
-      color: #fff; /* White text for visibility */
+      background-color: #000; /* Dark background like your screenshot */
+      color: #fff;
       margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
     }
-    .container {
+    .api-container {
       width: 200px;
       height: 200px;
-      margin: 20px;
       position: relative;
     }
     .api-svg {
       width: 100%;
       height: 100%;
       transition: transform 0.3s ease;
-      fill: none; /* Ensure the path uses stroke color */
-      stroke: #fff; /* White stroke for visibility on black */
+      stroke: #fff; /* White outline */
+      fill: none;
     }
     .api-svg:hover {
       transform: rotate(10deg); /* Rotate on hover */
@@ -34,7 +33,7 @@
       position: absolute;
       width: 5px;
       height: 5px;
-      background: #ff4500; /* Fiery orange dots to match your past requests */
+      background: #ff4500; /* Orange dots */
       border-radius: 50%;
       animation: moveDots 2s infinite alternate;
     }
@@ -48,10 +47,15 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <svg class="api-svg" viewBox="0 0 100 100">
-      <path d="M10 10 L90 10 L50 90 Z" stroke-width="2" />
-      <!-- Simple triangle, adjust to your API SVG shape -->
+  <div class="api-container">
+    <svg class="api-svg" viewBox="0 0 200 200">
+      <!-- Outer frame -->
+      <path d="M20 20 L180 20 L180 180 L20 180 Z" stroke-width="2" />
+      <!-- Diagonal line for perspective -->
+      <line x1="20" y1="20" x2="180" y2="180" stroke-width="2" />
+      <!-- Simple "X" shape (approximation) -->
+      <line x1="60" y1="60" x2="140" y2="140" stroke-width="2" />
+      <line x1="140" y1="60" x2="60" y2="140" stroke-width="2" />
     </svg>
     <div class="dot" style="top: 20px; left: 20px;"></div>
     <div class="dot" style="top: 40px; left: 40px;"></div>
